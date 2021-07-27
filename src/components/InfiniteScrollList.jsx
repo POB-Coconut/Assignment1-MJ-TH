@@ -1,32 +1,36 @@
-import "../assets/css/InfiniteScrollList.css";
-import Card from "./Card";
-import { useState, useRef, useEffect } from "react";
-import { fetchData } from "../api/fetchData";
+import '../assets/css/InfiniteScrollList.css';
+import Card from './Card';
+import { useState, useRef } from 'react';
+import { DEFAULT_PAGE } from '../utils/config';
+import useFetchCards from '../fetch/useFetchCards';
 
 const InfiniteScrollList = () => {
-  const [cards, setCards] = useState([]);
-  const limit = useRef(10);
-  const page = useRef(1);
-  const ioRef = useRef(null);
+  const [page, setPage] = useState(DEFAULT_PAGE);
+  const { hasMore, cards, isLoading } = useFetchCards(page);
+  const observerRef = useRef();
 
-  const getCards = async () => {
-    const newCards = await fetchData(page.current++, limit.current);
-    setCards((cards) => [...cards, ...newCards]);
+  const observer = (node) => {
+    if (isLoading) return;
+    if (observerRef.current) observerRef.current.disconnect();
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && hasMore) {
+        setPage((page) => page + 1);
+      }
+    });
+
+    if (node) observerRef.current.observe(node);
   };
-
-  useEffect(() => {
-    const io = new IntersectionObserver(([entry]) => entry.isIntersecting && getCards());
-    io.observe(ioRef.current);
-    return () => io.disconnect();
-  }, []);
 
   return (
     <>
-      <div className="container">
-        {cards.map(({ id, email, body }, key) => (
-          <Card id={id} email={email} body={body} key={key} />
-        ))}
-        <div className="observer" ref={ioRef}></div>
+      <div className='container'>
+        <ul>
+          {cards.map((card) => (
+            <Card card={card} key={card.id} />
+          ))}
+        </ul>
+        <div className='observer' ref={observer}></div>
       </div>
     </>
   );
