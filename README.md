@@ -26,22 +26,22 @@ npm install && npm start
 ## 3. 구조
 
 ```bash
-📦 src/
-┣ 📂 components/
-┃ ┗ ⚛️ Card.jsx
-┃ ┗ ⚛️ InfiniteScrollList.jsx
-┣ 📂 fetch/
-┃ ┗ ⚛️ useFetchCards.js
-┣ 📂 utils/
-┃ ┗ ⚛️ config.js
-┣ 📂 assets/
-┃ ┗ 📂 css/
-┃ 	┗ 💅App.css
-┃ 	┗ 💅 Card.css
-┃ 	┗ 💅 InfiniteScrollList.css
-┃ 	┗ 💅 reset.css
-┗ ⚛️ App.jsx
-┗ ⚛️ index.js
+src/
+┣ components/
+┃   ┗ Card.jsx
+┃   ┗ InfiniteScrollList.jsx
+┣ fetch/
+┃   ┗ useFetchCards.js
+┣ utils/
+┃   ┗ config.js
+┣ assets/
+┃   ┗ css/
+┃  	 ┗ App.css
+┃ 	 ┗ Card.css
+┃ 	 ┗ InfiniteScrollList.css
+┃ 	 ┗ reset.css
+┗ App.jsx
+┗ index.js
 ```
 
 ## 4. 데모
