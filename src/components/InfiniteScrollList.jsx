@@ -13,13 +13,13 @@ const InfiniteScrollList = () => {
     if (isLoading) return;
     if (observerRef.current) observerRef.current.disconnect();
 
-    observerRef.current = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && hasMore) {
+    observerRef.current = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && hasMore) {
         setPage((page) => page + 1);
       }
     });
 
-    if (node) observerRef.current.observe(node);
+    node && observerRef.current.observe(node);
   };
 
   return (
