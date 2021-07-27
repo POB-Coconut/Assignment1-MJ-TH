@@ -15,6 +15,7 @@ API와 연동하여 무한 스크롤(Infinite Scroll)을 구현해보자 !
 - [x] figma를 참고한 카드 스타일링
 - [x] JSON 데이터 Fetching
 - [x] 무한 스크롤 구현
+- [x] 리팩토링
 
 ## 2. 설치 및 실행
 
@@ -24,14 +25,23 @@ npm install && npm start
 
 ## 3. 구조
 
-```html
-src/
-ㄴ components/
-	ㄴ Card.jsx
-	ㄴ InfiniteScrollList.jsx
-ㄴ api/
-	ㄴ fetchData.js
-ㄴ App.jsx
+```bash
+📦 src/
+┣ 📂 components/
+┃ ┗ ⚛️ Card.jsx
+┃ ┗ ⚛️ InfiniteScrollList.jsx
+┣ 📂 fetch/
+┃ ┗ ⚛️ useFetchCards.js
+┣ 📂 utils/
+┃ ┗ ⚛️ config.js
+┣ 📂 assets/
+┃ ┗ 📂 css/
+┃ 	┗ 💅App.css
+┃ 	┗ 💅 Card.css
+┃ 	┗ 💅 InfiniteScrollList.css
+┃ 	┗ 💅 reset.css
+┗ ⚛️ App.jsx
+┗ ⚛️ index.js
 ```
 
 ## 4. 데모
