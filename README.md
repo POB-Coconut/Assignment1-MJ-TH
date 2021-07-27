@@ -46,4 +46,6 @@ src/
 
 ## 4. 데모
 
+데모 링크 : https://pob-coconut.github.io/Assignment1-MJ-TH/
+
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/19265753/127101541-ac42fa8b-0603-47c7-9624-4a05e7514592.gif)
