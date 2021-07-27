@@ -1,23 +1,23 @@
-import "../assets/css/Card.css";
+import '../assets/css/Card.css';
 
-const Card = ({ id, email, body }) => {
+const Card = ({ card }) => {
+  const { id, email, body } = card;
+
   return (
-    <div className="card-box">
-      <span className="row-1">
-        <h1>Comment Id</h1>
-        <h2>{id}</h2>
-      </span>
-      <span className="row-2">
-        <h1>Email</h1>
-        <h2>{email}</h2>
-      </span>
-      <span className="row-3">
-        <h1>Comment</h1>
-      </span>
-      <span className="row-4">
-        <h2>{body}</h2>
-      </span>
-    </div>
+    <li className='card'>
+      <div className='card__title'>
+        <h2>Comment Id</h2>
+        <p>{id}</p>
+      </div>
+      <div className='card__title'>
+        <h2>Email</h2>
+        <p>{email}</p>
+      </div>
+      <div>
+        <h2 className='card--comment'>Comment</h2>
+        <p>{body}</p>
+      </div>
+    </li>
   );
 };
 

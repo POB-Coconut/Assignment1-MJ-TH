@@ -1,38 +1,31 @@
-.card-box {
+h2,
+p {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   width: 500px;
   border: 0.5px solid #ced4da;
   box-sizing: border-box;
   border-radius: 20px;
   padding: 20px;
-  margin: 7px 0;
+  margin-bottom: 14px;
 }
 
-.row-1,
-.row-2 {
+.card__title {
   display: flex;
   align-items: center;
   margin-bottom: 12px;
 }
 
-.row-3 {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
-.row-1 h1,
-.row-2 h1,
-.row-3 h1 {
+.card__title h2 {
   margin-right: 12px;
 }
 
-h1 {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 21px;
-}
-
-h2 {
-  font-size: 18px;
-  line-height: 21px;
+.card--comment {
+  margin-bottom: 2px;
 }
