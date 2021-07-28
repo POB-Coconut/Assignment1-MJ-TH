@@ -17,7 +17,7 @@ const useFetchCards = (page) => {
 
       if (!res.ok) throw new Error(ERROR_MESSAGE);
 
-      setCards((prev) => [...new Set([...prev, ...data])]);
+      setCards((card) => [...card, ...data]);
       setHasMore(data.length > 0);
       setIsLoading(false);
     } catch (err) {
